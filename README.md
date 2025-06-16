@@ -59,5 +59,8 @@ app module -> AndroidManifest.xml
 
   ![Result with Android flavors](https://github.com/taweewong/Flutter-Flavor/blob/main/readme_assets/Screenshot%202568-06-16%20at%2015.13.23.png?raw=true)
 
+### Setup iOS Flavor
+* Using Xcode follow this video -> [Flutter Flavor](https://youtu.be/Vhm1Cv2uPko?si=26Fh9ZZwpj6HjloS&t=215)
+
 ### References
 * https://docs.flutter.dev/deployment/flavors
