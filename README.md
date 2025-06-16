@@ -1,7 +1,12 @@
 # Flutter-Flavor
 Leaning about flavor and environment in Flutter
 
-## Run the application
+## Setup entry file
+* Create `main_dev.dart`, `main_staging.dart`, `main_prod.dart` to be entries file.
+* All of `main` file can setup for each flavor.
+* Then pass the config or something to the `app.dart`
+
+## Run the application with target
 
 ### Select which environment to run
 ```
@@ -10,22 +15,20 @@ flutter run --target lib/main_staging.dart
 flutter run --target lib/main_prod.dart
 ```
 
-### After setup flavor on Android and iOS it will be able to select flavor
-```
-flutter run --target lib/main_dev.dart --flavor dev
-```
-
 ### Add Run Configuration to Android Studio
-* Add above command to run configuration, this make it easier to run the app.
+* Add above command to run configuration, this makes it easier to run the app.
 ![Adding Run Configuration](https://github.com/taweewong/Flutter-Flavor/blob/main/readme_assets/Screenshot%202568-06-16%20at%2014.06.34.png?raw=true)
 
-### Setup Android Flavor
+## Setup flavors
+
+### Setup Android Flavors
 * Add product flavor by adding code below.
 * `app_name` will show differently depends on flavor.
 * Build app with `--flavor dev` to apply Android flavor, otherwise app name will be `flutter_flavor` (no flavor).
 
 ```
 app module -> build.gradle
+
 flavorDimensions += "default"
 productFlavors {
     create("dev") {
@@ -48,19 +51,67 @@ productFlavors {
 
 ```
 app module -> AndroidManifest.xml
+
 <application
     android:label="@string/app_name"
     ...
 ```
 
-* Don't forget to update Run Configuration
-  ![Run Configuration with Android flavors](https://github.com/taweewong/Flutter-Flavor/blob/main/readme_assets/Screenshot%202568-06-16%20at%2015.13.59.png?raw=true)
-* When run the app it should separate package name like this
-
-  ![Result with Android flavors](https://github.com/taweewong/Flutter-Flavor/blob/main/readme_assets/Screenshot%202568-06-16%20at%2015.13.23.png?raw=true)
-
-### Setup iOS Flavor
+### Setup iOS Flavors
 * Using Xcode follow this video -> [Flutter Flavor](https://youtu.be/Vhm1Cv2uPko?si=26Fh9ZZwpj6HjloS&t=215)
 
-### References
+### Run with Flavor
+
+```
+flutter run --target lib/main_dev.dart --flavor dev
+```
+
+* When run the app it should separate package name like this
+
+![Result with Android flavors](https://github.com/taweewong/Flutter-Flavor/blob/main/readme_assets/Screenshot%202568-06-16%20at%2015.13.23.png?raw=true)
+
+* Set Run Configuration with Flavor
+  
+![Run Configuration with Android flavors](https://github.com/taweewong/Flutter-Flavor/blob/main/readme_assets/Screenshot%202568-06-16%20at%2015.13.59.png?raw=true)
+
+## Adding Icons
+
+### Use flutter_launcher_icons
+```
+flutter pub add flutter_launcher_icons
+```
+
+### Adding Icons
+* It should be 1024x1024 (for iOS support)
+* example folder:
+  * assets/icons/icon_dev.png
+  * assets/icons/icon_staging.png
+  * assets/icons/icon_prod.png
+
+### Create .yaml to generate icon
+* The library will generate icon for each platform
+```
+Example: flutter_launcher_icons-dev.yaml
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: 'assets/icons/icon_dev.png'
+  remove_alpha_ios: true
+```
+
+### Let the lib generate icon
+```
+flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons*
+```
+
+### More setup for iOS
+* Go to `Runner -> Build Settings -> Primary App Icon Set Name
+* Add values like this
+  
+![image](https://github.com/user-attachments/assets/0192903e-a14d-4d47-99c3-a241464f9bd6)
+
+
+## References
 * https://docs.flutter.dev/deployment/flavors
+* https://www.youtube.com/watch?v=Vhm1Cv2uPko
