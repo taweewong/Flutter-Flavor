@@ -14,3 +14,7 @@ flutter run --target lib/main_prod.dart
 ```
 flutter run --target lib/main_dev.dart --flavor dev
 ```
+
+### Add Run Configuration to Android Studio
+* Add above command to run configuration, this make it easier to run the app.
+![Adding Run Configuration](https://github.com/taweewong/Flutter-Flavor/blob/main/readme_assets/Screenshot%202568-06-16%20at%2014.06.34.png?raw=true)
