@@ -106,7 +106,7 @@ flutter pub run flutter_launcher_icons:main -f flutter_launcher_icons*
 ```
 
 ### More setup for iOS
-* Go to `Runner -> Build Settings -> Primary App Icon Set Name
+* Go to `Runner -> Build Settings -> Primary App Icon Set Name`
 * Add values like this
   
 ![image](https://github.com/user-attachments/assets/0192903e-a14d-4d47-99c3-a241464f9bd6)
