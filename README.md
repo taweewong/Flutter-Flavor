@@ -53,5 +53,11 @@ app module -> AndroidManifest.xml
     ...
 ```
 
+* Don't forget to update Run Configuration
+  ![Run Configuration with Android flavors](https://github.com/taweewong/Flutter-Flavor/blob/main/readme_assets/Screenshot%202568-06-16%20at%2015.13.59.png?raw=true)
+* When run the app it should separate package name like this
+
+  ![Result with Android flavors](https://github.com/taweewong/Flutter-Flavor/blob/main/readme_assets/Screenshot%202568-06-16%20at%2015.13.23.png?raw=true)
+
 ### References
 * https://docs.flutter.dev/deployment/flavors
