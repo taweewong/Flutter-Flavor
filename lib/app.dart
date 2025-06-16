@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
-  const App({super.key});
+  String flavor;
+
+  App({
+    super.key,
+    required this.flavor
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      title: "Flutter Flavors Example",
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(flavor),
+        ),
+      ),
+    );
   }
 }
